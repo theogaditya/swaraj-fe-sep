@@ -45,7 +45,7 @@ const ComplaintCard: React.FC<ComplaintCardProps> = ({ complaint }) => {
         // Note: We don't update hasUpvoted from WS as it might be for another user
       }
     },
-    onError: (error) => {
+    onError: () => {
       // Silently handle WebSocket errors - they're not critical for card functionality
       console.debug('[WS] Connection error (this is normal if server is not running)');
     },
