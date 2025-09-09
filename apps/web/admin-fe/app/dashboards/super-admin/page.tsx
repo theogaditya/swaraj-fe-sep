@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 export default function SuperAdminDashboard() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<'dashboard' | 'admins' | 'settings'>('dashboard');
-  // Logout logic here
+
   function handleLogout() {
     localStorage.removeItem('authToken');
     router.push('/');
