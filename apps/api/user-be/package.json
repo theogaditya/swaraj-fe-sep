@@ -1,0 +1,46 @@
+{
+  "name": "user-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development tsc -b && cross-env NODE_ENV=development node dist/index.js",
+    "build": "cross-env NODE_ENV=production tsc -b && cross-env NODE_ENV=production "
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.884.0",
+    "@google-cloud/vertexai": "^1.10.0",
+    "@prisma/client": "^6.15.0",
+    "@types/express": "^5.0.3",
+    "@types/nodemailer": "^6.4.19",
+    "aws-sdk": "^2.1692.0",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "google-auth-library": "^9.15.1",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.10.1",
+    "npm": "^11.6.0",
+    "websocket": "^1.0.35",
+    "ws": "^8.18.3",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^1.4.13",
+    "@types/node": "^22.18.1",
+    "@types/ws": "^8.18.1",
+    "cross-env": "^7.0.3",
+    "typescript": "^5.9.2"
+  }
+}
