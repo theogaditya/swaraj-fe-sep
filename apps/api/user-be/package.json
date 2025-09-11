@@ -11,8 +11,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.884.0",
     "@google-cloud/vertexai": "^1.10.0",
-    "@prisma/client": "^6.15.0",
-    "@types/express": "^5.0.3",
+    "@prisma/client": "^6.16.0",
     "@types/nodemailer": "^6.4.19",
     "aws-sdk": "^2.1692.0",
     "bcrypt": "^6.0.0",
@@ -30,12 +29,15 @@
     "npm": "^11.6.0",
     "websocket": "^1.0.35",
     "ws": "^8.18.3",
-    "zod": "^3.25.76"
+    "zod": "^3.25.76",
+    "@repo/db": "*"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cookie-parser": "^1.4.9",
     "@types/cors": "^2.8.19",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/multer": "^1.4.13",
     "@types/node": "^22.18.1",

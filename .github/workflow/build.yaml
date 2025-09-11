@@ -22,11 +22,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-              
-      - name: Build user-fe
-        working-directory: ./apps/web/user-fe
-        run: npm install && npm run build
+
       
-      - name: Build admin-fe
-        working-directory: ./apps/web/admin-fe
-        run: npm install && npm run build
+
+      

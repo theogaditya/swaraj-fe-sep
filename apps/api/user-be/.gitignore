@@ -1,0 +1,5 @@
+.env.prod
+.env.local
+node_modules
+dist
+.env

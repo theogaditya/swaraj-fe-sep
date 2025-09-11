@@ -1,14 +1,13 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
 
     "module": "commonjs",
     "target": "es2016",
     //"types": [],
 
-    //"sourceMap": true,
+    "sourceMap": true,
     "declaration": true,
-    //"declarationMap": true,
+    "declarationMap": true,
 
     // Stricter Typechecking Options
     //"noUncheckedIndexedAccess": true,
