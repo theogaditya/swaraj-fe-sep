@@ -76,6 +76,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
 }
 
 .dark {
@@ -119,4 +121,45 @@
   body {
     @apply bg-background text-foreground;
   }
+
+    html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+}
+
+/*
+  This hides the Google Translate banner iframe.
+  !important is used to make sure our style overrides any inline styles from Google.
+*/
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/*
+  When the banner is active, Google adds `top: 40px` to the body,
+  creating a gap at the top. This rule resets it.
+*/
+body {
+  top: 0px !important;
+}
+
+/*
+  This is a helper class to ensure that the main page element
+  doesn't get shifted by the translation script.
+*/
+.skiptranslate {
+  position: static !important;
 }
