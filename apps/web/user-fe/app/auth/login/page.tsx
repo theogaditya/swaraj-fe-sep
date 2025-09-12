@@ -164,7 +164,7 @@ export default function LoginPage() {
             </p>
             <p className="mt-2">
               <a 
-                href="/forgot-password" 
+                href="/auth/forgot-password" 
                 className="text-gray-600 dark:text-gray-400 hover:underline"
               >
                 Forgot password?
