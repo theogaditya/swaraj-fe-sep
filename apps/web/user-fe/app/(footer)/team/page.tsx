@@ -24,12 +24,33 @@ const TeamPage = () => {
       linkedin: "https://www.linkedin.com/in/abhash-behera-70b77528b/",
     },
     {
-      name: "Pramit kumar ",
-      role: "Full stack engineer & Co-founder",
-      image: "https://swarajdesk.adityahota.online/pramit-pfp.png",
-      github: "https://github.com/PRAMITKN",
-      linkedin: "https://www.linkedin.com/in/pramitkumarnaik/",
+      name: "Ritesh Kumar Singh ",
+      role: "Full stack engineer & Blockchain developer  & Co-founder",
+      image: "",
+      github: "https://github.com/neutron420",
+      linkedin: "https://www.linkedin.com/in/ritesh-singh1/",
     },
+    // {
+    //   name: "Aniroodh Padhee",
+    //   role: "AI/ML Engineer Developer & Co-founder",
+    //   image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+    //   github: "https://github.com/sarahjohnson",
+    //   linkedin: "https://www.linkedin.com/in/sarahjohnson/",
+    // },
+    // {
+    //   name: "Ankita Adhikary",
+    //   role: " Frontend UI/UX and & Co-founder",
+    //   image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    //   github: "https://github.com/michaelchen",
+    //   linkedin: "https://www.linkedin.com/in/michaelchen/",
+    // },
+    // {
+    //   name: "Doyel Mishra",
+    //   role: "AI/ML Engineer Developer  & Co-founder",
+    //   image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    //   github: "https://github.com/emilyrodriguez",
+    //   linkedin: "https://www.linkedin.com/in/emilyrodriguez/",
+    // },
   ];
 
   const values = [

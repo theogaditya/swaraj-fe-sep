@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 import {AnimatedTestimonialsBasic} from "@/components/testimony";
 import { Users, Shield, Globe, Zap } from 'lucide-react';
 import { Cta } from "@/components/ui/cta";
+import CallToAction1 from "@/components/blocks/call-to-action-1";
 
   const features = [
     {
@@ -80,7 +81,7 @@ const Statistics = () => {
             Our Impact
           </h2>
           <p className="text-gray-600 dark:text-gray-400">
-            See how we're making a difference
+            See how we&apos;re making a difference
           </p>
         </div>
         
@@ -165,6 +166,11 @@ export default function Home() {
       </div>
       <br></br>
       <Cta />
+      <div className="py-16 px-4">
+        <div className="max-w-6xl mx-auto flex justify-center">
+          <CallToAction1 />
+        </div>
+      </div>
       <AnimatedTestimonialsBasic />
     </div>
   );
