@@ -107,18 +107,16 @@ router.post('/signup', async (req, res: any) => {
   }
 });
 
-// Signin route
-router.post('/signin', async (req, res:any) => {
+// --- Signin route (replace your current /signin handler with this) ---
+router.post('/signin', async (req, res: any) => {
   try {
     const { email, password } = signinSchema.parse(req.body);
 
-    // Find user
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user || !user.password) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    // Verify password
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
       return res.status(401).json({ error: 'Invalid credentials' });
@@ -127,13 +125,27 @@ router.post('/signin', async (req, res:any) => {
     // Generate JWT
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET!, { expiresIn: '7d' });
 
-    res.cookie('token', token, {
+    // Cookie options: use 'none' in production (for cross-site cookies),
+    // but keep sensible defaults in development to avoid strict secure requirements on localhost.
+    const cookieOptions: any = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      path: '/',
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-    });
+      secure: process.env.NODE_ENV === 'production',
+      // In production, set SameSite=None so the cookie will be sent on cross-site requests
+      // (requires `secure: true` on modern browsers). For local dev we keep 'lax' to avoid rejection.
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    };
 
-    res.json({ message: 'Signed in', user: { id: user.id, email, name: user.name } });
+    res.cookie('token', token, cookieOptions);
+
+    // Also return token in JSON as a fallback for clients that cannot store the cookie
+    // (e.g., development or strict cross-site contexts). The cookie is still httpOnly.
+    res.json({
+      message: 'Signed in',
+      user: { id: user.id, email: user.email, name: user.name },
+      token, // fallback - frontend may choose to store this (e.g., localStorage) as Authorization Bearer
+    });
   } catch (error) {
     if (error instanceof z.ZodError) {
       return res.status(400).json({ error: error.errors });
@@ -142,12 +154,16 @@ router.post('/signin', async (req, res:any) => {
   }
 });
 
-//Logout 
+// --- Logout route (clear cookie using same options) ---
 router.post('/logout', (req, res) => {
-  // Clear cookie
-  res.clearCookie('token');
+  res.clearCookie('token', {
+    path: '/',
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+  });
   res.json({ message: 'Logged out' });
 });
+
 
 router.get('/status', async (req, res:any) => {
   const token = req.cookies.token;

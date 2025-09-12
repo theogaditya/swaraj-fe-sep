@@ -26,14 +26,33 @@ const server = http.createServer(app);
 
 // Middleware 
 //'http://localhost:3000', 'http://localhost:3002', 'https://swarajnew.adityahota.online'
-app.use(
-  cors({
-    origin: ['http://localhost:3000', 'http://localhost:3002','https://swarajnew.adityahota.online'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"]
-  })
-);
+// app.use(
+//   cors({
+//     origin: ['http://localhost:3000', 'http://localhost:3002','https://swarajnew.adityahota.online','https://swarajdesk-fe.abhashbehera.online'],
+//     methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
+//     credentials: true,
+//     allowedHeaders: ["Content-Type", "Authorization"]
+//   })
+// );
+
+
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3002','https://swarajnew.adityahota.online','https://swarajdesk-fe.abhashbehera.online'];
+
+app.use(cors({
+  origin: (origin, cb) => {
+    // allow requests with no origin (e.g. mobile tools or server-to-server)
+    if (!origin) return cb(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      return cb(null, true);
+    }
+    return cb(new Error('Not allowed by CORS'));
+  },
+  methods: ['GET','POST','PUT','DELETE','PATCH'],
+  credentials: true,
+  allowedHeaders: ['Content-Type','Authorization'],
+}));
+
+
 app.use(express.json());
 app.use(cookieParser());
 
